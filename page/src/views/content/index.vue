@@ -1,0 +1,88 @@
+<template>
+  <div class="content">
+    <div class="card">
+      <ContentCard
+        @click="toDetail(item.id)"
+        v-for="(item, index) in list"
+        :key="index"
+        :content="item"
+      />
+    </div>
+    <div class="page">
+      <n-pagination
+        v-if="list.length"
+        v-model:page="page.current"
+        show-size-picker
+        :page-sizes="[12, 24, 36, 48, 120]"
+        @update:page="changePage"
+        @update:page-size="changePageSize"
+      />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import ContentCard from '../../components/contentCard.vue'
+import { useRouter } from 'vue-router'
+import { getContentList } from '../../api/index.js'
+const $router = useRouter()
+
+const page = ref({
+  current: 1, //当前页
+  pageSize: 12, //当前页数量
+})
+const list = ref([])
+
+// 获取文章内容列表
+const getListData = async () => {
+  const res = await getContentList({
+    page: {
+      current: 1,
+      pageSize: 10,
+    },
+  })
+  if (res.status == '1') {
+    list.value = res.data.data
+  }
+}
+getListData()
+
+// 切换当前页
+const changePage = (current) => {
+  page.value.current = current
+  getListData()
+}
+// 切换当前页数量
+const changePageSize = (pageSize) => {
+  page.value.pageSize = pageSize
+  getListData()
+}
+// 跳转文章详情
+const toDetail = (id) => {
+  $router.push('/content/detail?id=' + id)
+}
+</script>
+
+<style scoped lang="less">
+.content {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 64px 64px;
+  .card {
+    width: 1260px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    grid-gap: 30px;
+  }
+  .page {
+    width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+  }
+}
+</style>
