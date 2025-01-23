@@ -95,7 +95,7 @@ const logout = () => {
   // 跳转登录页
   $router.push('/login')
   // 清除本地 token
-  // localStorage.removeItem("BAIXUEGE_TOKEN");
+  localStorage.removeItem("BLOG_TOKEN");
 }
 </script>
 

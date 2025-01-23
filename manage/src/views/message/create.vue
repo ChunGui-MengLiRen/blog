@@ -15,7 +15,7 @@
         <n-input
           v-model:value="model.name"
           placeholder="签名..."
-          maxlength="16"
+          maxlength="12"
           show-count
         />
       </n-form-item>

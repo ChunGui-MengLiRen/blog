@@ -25,7 +25,7 @@ defineProps({
 
 <style scoped lang="less">
 .content-card {
-  width: 400px;
+  width: 360px;
   height: 216px;
   display: flex;
   flex-direction: column;

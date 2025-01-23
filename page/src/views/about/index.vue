@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="card">
+    <div class="card card-s card-m card-l">
       <n-card title="自己" embedded :bordered="false">
         {{ model.self }}
       </n-card>
@@ -59,22 +59,46 @@ getAboutDetail()
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 64px;
+  padding: 64px 32px;
   width: 100%;
   min-height: 100vh;
   .card {
     margin-top: 48px;
-    width: 1240px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 48px;
   }
   .qr {
-    width: 1240px;
+    width: 100%;
     margin-top: 56px;
     display: flex;
     justify-content: center;
     gap: 64px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about {
+    .card-s {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .about {
+    .card-m {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .about {
+    .card-l {
+      width: 1120px;
+    }
   }
 }
 </style>

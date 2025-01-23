@@ -1,9 +1,9 @@
 <template>
   <div class="message">
-    <div class="card">
+    <div class="card card-s card-m card-l">
       <MessageCard v-for="(item, index) in list" :key="index" :data="item" />
     </div>
-    <div class="page">
+    <div class="page page-s page-m page-l">
       <n-button round type="primary" @click="openModal">留言</n-button>
       <n-pagination
         v-if="list.length"
@@ -21,7 +21,7 @@
     transform-origin="center"
   >
     <n-card
-      style="width: 600px"
+      class="msg-card msg-card-s msg-card-m msg-card-l"
       title="留言"
       :bordered="false"
       size="huge"
@@ -36,9 +36,6 @@
           label-placement="left"
           label-width="auto"
           require-mark-placement="right-hanging"
-          :style="{
-            width: '500px',
-          }"
         >
           <n-form-item label="颜色">
             <div class="radio">
@@ -178,6 +175,12 @@ const addMsgData = async () => {
           message.success('新增成功')
           showModal.value = false
           getListData()
+          model.value = {
+            name: '',
+            datetime: null,
+            msg: '',
+            color: '#FEE7E3',
+          }
         } else {
           message.error('新增失败')
         }
@@ -215,18 +218,19 @@ const changePageSize = (pageSize) => {
 .message {
   width: 100%;
   min-height: 100vh;
-  padding: 100px 64px 64px;
+  padding: 100px 0px 64px;
   .card {
-    width: 1260px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-items: center;
     grid-gap: 20px;
   }
   .page {
-    width: 1260px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 24px;
     margin-top: 32px;
     display: flex;
     justify-content: space-between;
@@ -257,5 +261,44 @@ const changePageSize = (pageSize) => {
   display: flex;
   justify-content: flex-end;
   gap: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .message {
+    .card-s {
+      width: 660px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .page-s {
+      width: 660px;
+    }
+  }
+  .msg-card-s {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .message {
+    .card-m {
+      width: 960px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .page-m {
+      width: 960px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .message {
+    .card-l {
+      width: 1260px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .page-l {
+      width: 1260px;
+    }
+  }
 }
 </style>

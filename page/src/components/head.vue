@@ -1,29 +1,85 @@
 <template>
   <div class="head">
-    <ul>
-      <li>
-        <n-button text tag="a" href="#/home" type="default">首页</n-button>
-      </li>
-      <li>
-        <n-button text tag="a" href="#/content" type="default">
-          内容分享
-        </n-button>
-      </li>
-      <li>
-        <n-button text tag="a" href="#/message" type="default">
-          留言墙
-        </n-button>
-      </li>
-      <li>
-        <n-button text tag="a" href="#/about" type="default">关于</n-button>
-      </li>
-    </ul>
-    <!-- <div class="head-bg"></div> -->
+    <n-menu
+      :value="activeKey"
+      mode="horizontal"
+      :options="menuOptions"
+      style="margin:0 auto;width: 275px;"
+    />
   </div>
 </template>
 
-<script>
-export default {}
+<script setup>
+import { ref, h } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
+const $route = useRoute()
+const activeKey = ref($route.path.split('/')[1])
+const menuOptions = [
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/home',
+          },
+          onClick() {
+            activeKey.value = 'home'
+          },
+        },
+        { default: () => '首页' },
+      ),
+    key: 'home',
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/content',
+          },
+          onClick() {
+            activeKey.value = 'content'
+          },
+        },
+        { default: () => '内容' },
+      ),
+    key: 'content',
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/message',
+          },
+          onClick() {
+            activeKey.value = 'message'
+          },
+        },
+        { default: () => '留言' },
+      ),
+    key: 'message',
+  },
+  {
+    label: () =>
+      h(
+        RouterLink,
+        {
+          to: {
+            path: '/about',
+          },
+          onClick() {
+            activeKey.value = 'about'
+          },
+        },
+        { default: () => '关于' },
+      ),
+    key: 'about',
+  },
+]
 </script>
 
 <style scoped lang="less">
@@ -34,7 +90,7 @@ export default {}
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 56px;
   border-bottom: 1px solid #e8e8e8;
   background-color: #fff;

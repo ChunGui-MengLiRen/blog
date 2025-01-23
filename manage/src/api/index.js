@@ -126,3 +126,14 @@ export function addMessage(data) {
     data,
   })
 }
+
+// 上传图片
+export function uploadImage(formdData) {
+  return request({
+    method: 'post',
+    url: '/upload',
+    data: formdData,
+    //设置Content-Type类型
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+}

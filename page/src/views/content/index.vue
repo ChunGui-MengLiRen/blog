@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="card">
+    <div class="card card-s card-m card-l">
       <ContentCard
         @click="toDetail(item.id)"
         v-for="(item, index) in list"
@@ -66,23 +66,50 @@ const toDetail = (id) => {
 
 <style scoped lang="less">
 .content {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
-  padding: 100px 64px 64px;
+  padding: 100px 0px 64px;
   .card {
-    width: 1260px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-items: center;
     grid-gap: 30px;
   }
   .page {
-    width: 1240px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: flex-end;
     margin-top: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    .card-s {
+      width: 750px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .content {
+    .card-m {
+      width: 750px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .content {
+    .card-l {
+      width: 1260px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 }
 </style>

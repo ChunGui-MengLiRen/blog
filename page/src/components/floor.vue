@@ -19,8 +19,7 @@
   </div>
 </template>
   
-  <script>
-export default {}
+<script setup>
 </script>
   
   <style scoped lang="less">
@@ -31,10 +30,10 @@ export default {}
   align-items: center;
   width: 100%;
   height: 216px;
-  background-color: #FAFAFC;
+  background-color: #fafafc;
   .inner {
-    width: 1240px;
-    height: 168px;
+    width: 100%;
+    height: 100%;
     padding: 24px 0;
     display: flex;
     justify-content: center;
@@ -56,7 +55,7 @@ export default {}
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1240px;
+    width: 100%;
     height: 48px;
     border-top: 1px solid #e8e8e8;
   }

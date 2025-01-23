@@ -24,7 +24,7 @@
             <n-input
               v-model:value="model.title"
               placeholder="标题..."
-              maxlength="16"
+              maxlength="12"
               show-count
             />
           </n-form-item>
@@ -76,6 +76,7 @@
       <v-md-editor
         v-model="model.article"
         :disabled-menus="[]"
+        @upload-image="handleUploadImage"
         height="800px"
       ></v-md-editor>
     </div>
@@ -86,7 +87,11 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMessage } from 'naive-ui'
-import { getContentDetail, updateContent } from '../../api/index.js'
+import {
+  getContentDetail,
+  updateContent,
+  uploadImage,
+} from '../../api/index.js'
 import dayjs from 'dayjs'
 const $router = useRouter()
 const message = useMessage()
@@ -172,6 +177,23 @@ const updateContentData = async () => {
         message.error(error.message)
       }
     }
+  })
+}
+
+// 图片处理
+const handleUploadImage = async (event, insertImage, files) => {
+  console.log(event)
+  console.log(insertImage)
+  console.log(files)
+  const formData = new FormData()
+  formData.append('file', files[0])
+  const res = await uploadImage(formData)
+  console.log(res)
+  insertImage({
+    url: baseUrl + res.path,
+    desc: res.name,
+    // width: 'auto',
+    // height: 'auto',
   })
 }
 </script>

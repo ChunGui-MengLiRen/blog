@@ -5,7 +5,7 @@
       mode="preview"
       ref="preview"
       class="preview"
-    ></v-md-editor>
+    />
   </div>
 </template>
 
@@ -40,7 +40,7 @@ getContentDetailData()
   min-height: 100vh;
   background-color: #fff;
   .v-md-editor {
-    width: 1024px;
+    width: 100%;
     margin: 0 auto;
   }
 }
