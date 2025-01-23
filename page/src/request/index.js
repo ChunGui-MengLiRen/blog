@@ -5,7 +5,7 @@ import router from '../router'
 // 'application/x-www-form-urlencoded';
 const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
-  withCredentials: true,
+  // withCredentials: true,
   timeout: 10000,
 })
 

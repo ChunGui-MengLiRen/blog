@@ -23,7 +23,8 @@ const page = require("./routes/page");
 onerror(app);
 
 // 中间件
-app.use(cors()); // 解决跨域
+// 解决跨域
+app.use(cors());
 app.use(
   bodyparser({
     enableTypes: ["json", "form", "text"],

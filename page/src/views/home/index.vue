@@ -12,8 +12,8 @@
 <script setup>
 import { ref } from 'vue'
 import { getHome } from '../../api/index.js'
-// import { useMessage } from 'naive-ui'
-// const message = useMessage()
+import { useMessage } from 'naive-ui'
+const message = useMessage()
 const baseUrl = import.meta.env.VITE_APP_BASE_API
 const model = ref({
   image: '',
