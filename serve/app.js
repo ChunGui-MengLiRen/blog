@@ -24,7 +24,16 @@ onerror(app);
 
 // 中间件
 // 解决跨域
-app.use(cors());
+app.use(
+  cors({
+    // 任何地址都可以访问
+    origin: "*",
+    maxAge: 2592000,
+    credentials: true, //允许携带cookie
+    allowMethods: ["GET", "POST", "DELETE", "OPTION"], //允许的请求方法
+    allowHeaders: ["Content-Type", "Authorization", "Accept"], //允许的请求头
+  })
+);
 app.use(
   bodyparser({
     enableTypes: ["json", "form", "text"],

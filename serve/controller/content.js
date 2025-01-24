@@ -50,7 +50,7 @@ const contentList = async (ctx, next) => {
           data: result.map((item) => {
             return {
               ...item,
-              datetime: dayjs(item.time).format("YYYY-MM-DD HH:mm:ss"),
+              datetime: dayjs(datetime).format("YYYY-MM-DD HH:mm:ss"),
             };
           }),
         },

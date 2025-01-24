@@ -79,7 +79,7 @@ const pageContentList = async (ctx, next) => {
           data: result.map((item) => {
             return {
               ...item,
-              datetime: dayjs(item.time).format("YYYY-MM-DD HH:mm:ss"),
+              datetime: dayjs(item.datetime).format("YYYY-MM-DD HH:mm:ss"),
             };
           }),
         },
@@ -199,7 +199,7 @@ const pageMessageList = async (ctx, next) => {
           data: result.map((item) => {
             return {
               ...item,
-              datetime: dayjs(item.time).format("YYYY-MM-DD HH:mm:ss"),
+              datetime: dayjs(item.datetime).format("YYYY-MM-DD HH:mm:ss"),
             };
           }),
         },
@@ -257,5 +257,5 @@ module.exports = {
   pageContentDetail,
   pageMessageList,
   pageAboutDetail,
-  pageMessageAdd
+  pageMessageAdd,
 };

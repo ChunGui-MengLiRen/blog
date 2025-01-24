@@ -197,6 +197,8 @@ const getListData = async () => {
     page: page.value,
   })
   if (res.status == '1') {
+    console.log(res.data.data);
+    
     list.value = res.data.data
   }
 }

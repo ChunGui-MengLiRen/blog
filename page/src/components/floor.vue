@@ -3,19 +3,19 @@
     <div class="inner">
       <div class="qr">
         <n-qr-code
-          value="https://www.naiveui.com/"
+          value="https://qm.qq.com/cgi-bin/qm/qr?k=SpytgyEWFnd8aMPeno8s3m4F_OiqVASg"
           background-color="#F5F5F5"
         />
       </div>
       <n-divider vertical style="height: 100%" />
       <ul>
-        <li>哔哩哔哩：4792742</li>
-        <li>邮箱：123456789@qq.com</li>
-        <li>Github：123456789@qq.com</li>
-        <li>Steam：4792742</li>
+        <li>哔哩哔哩：60712934</li>
+        <li>邮箱：1971421491@qq.com</li>
+        <li>qq：1971421491</li>
+        <li>Steam：358476022</li>
       </ul>
     </div>
-    <div class="tip">备案许可：皖ICP备19433466号</div>
+    <div class="tip">备案中……</div>
   </div>
 </template>
   
@@ -39,14 +39,14 @@
     justify-content: center;
     align-items: center;
     .qr {
-      margin-right: 36px;
+      margin-right: 32px;
     }
     ul {
       margin-left: 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 12px;
+      gap: 8px;
       height: 100%;
     }
   }

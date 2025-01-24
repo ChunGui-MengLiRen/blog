@@ -97,7 +97,7 @@ const page = ref({
 })
 
 const pagination = ref({
-  pageSize: 5,
+  pageSize: 10,
   showSizePicker: true,
   pageSizes: [10, 20, 50, 100],
 })
