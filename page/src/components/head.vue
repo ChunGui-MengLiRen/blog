@@ -4,7 +4,7 @@
       :value="activeKey"
       mode="horizontal"
       :options="menuOptions"
-      style="margin:0 auto;width: 275px;"
+      style="margin: 0 auto; width: 300px"
     />
   </div>
 </template>
@@ -27,7 +27,7 @@ const menuOptions = [
             activeKey.value = 'home'
           },
         },
-        { default: () => '首页' },
+        { default: () => h('div', { style: 'font-size: 18px' }, '首页') },
       ),
     key: 'home',
   },
@@ -43,7 +43,7 @@ const menuOptions = [
             activeKey.value = 'content'
           },
         },
-        { default: () => '内容' },
+        { default: () => h('div', { style: 'font-size: 18px' }, '内容') },
       ),
     key: 'content',
   },
@@ -59,7 +59,7 @@ const menuOptions = [
             activeKey.value = 'message'
           },
         },
-        { default: () => '留言' },
+        { default: () => h('div', { style: 'font-size: 18px' }, '留言') },
       ),
     key: 'message',
   },
@@ -75,7 +75,7 @@ const menuOptions = [
             activeKey.value = 'about'
           },
         },
-        { default: () => '关于' },
+        { default: () => h('div', { style: 'font-size: 18px' }, '关于') },
       ),
     key: 'about',
   },
@@ -88,6 +88,7 @@ const menuOptions = [
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   width: 100vw;
