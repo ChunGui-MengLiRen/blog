@@ -8,7 +8,7 @@
         :content="item"
       />
     </div>
-    <div class="page">
+    <div class="page page-s page-m page-l">
       <n-pagination
         v-if="list.length"
         v-model:page="page.current"
@@ -82,6 +82,7 @@ const toDetail = (id) => {
   .page {
     width: 100%;
     margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     justify-content: flex-end;
     margin-top: 32px;
@@ -94,6 +95,9 @@ const toDetail = (id) => {
       width: 750px;
       grid-template-columns: 1fr 1fr;
     }
+    .page-s {
+      width: 660px;
+    }
   }
 }
 
@@ -103,6 +107,9 @@ const toDetail = (id) => {
       width: 750px;
       grid-template-columns: 1fr 1fr;
     }
+    .page-m {
+      width: 960px;
+    }
   }
 }
 
@@ -111,6 +118,9 @@ const toDetail = (id) => {
     .card-l {
       width: 1260px;
       grid-template-columns: 1fr 1fr 1fr;
+    }
+    .page-l {
+      width: 1260px;
     }
   }
 }

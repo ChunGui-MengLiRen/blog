@@ -36,7 +36,7 @@ getContentDetailData()
 
 <style scoped lang="less">
 .detail {
-  padding: 64px;
+  padding: 64px 0;
   min-height: 100vh;
   background-color: #fff;
   .v-md-editor {

@@ -1,6 +1,10 @@
 <template>
   <div class="about">
     <div class="card card-s card-m card-l">
+      <div class="info">
+        <img :src="baseUrl + model.image" alt="" />
+        <div>{{ model.name }}</div>
+      </div>
       <n-card title="自己" embedded :bordered="false">
         {{ model.self }}
       </n-card>
@@ -34,12 +38,15 @@ import { ref } from 'vue'
 import { getAbout } from '../../api/index.js'
 import { useMessage } from 'naive-ui'
 const message = useMessage()
-// 生活、工作、娱乐、自己
+const baseUrl = import.meta.env.VITE_APP_BASE_API
+// 生活、工作、娱乐、自己、头像、名称
 const model = ref({
   self: '',
   work: '',
   game: '',
   life: '',
+  image: '',
+  name: '',
 })
 // 获取详情
 const getAboutDetail = async () => {
@@ -75,6 +82,20 @@ getAboutDetail()
     display: flex;
     justify-content: center;
     gap: 64px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 32px;
+    font-weight: 600;
+    > img {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+    }
   }
 }
 
